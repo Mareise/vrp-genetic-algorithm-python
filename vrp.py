@@ -11,13 +11,14 @@ vrp = {}
 
 
 def readinput():
-	try:
-		line = raw_input().strip()
-		while line == '' or line.startswith('#'):
-			line = raw_input().strip()
-		return line
-	except EOFError:
-		return None
+    try:
+        line = input().strip()
+        while line == '' or line.startswith('#'):
+            line = input().strip()
+        return line
+    except EOFError:
+        return None
+
 
 
 line = readinput()
@@ -145,11 +146,12 @@ pop = []
 
 # Generating random initial population
 for i in range(popsize):
-	p = range(1, len(vrp['nodes']))
-	random.shuffle(p)
-	pop.append(p)
+    p = list(range(1, len(vrp['nodes'])))
+    random.shuffle(p)
+    pop.append(p)
+
 for p in pop:
-	adjust(p)
+    adjust(p)
 
 # Running the genetic algorithm
 for i in range(iterations):
@@ -197,10 +199,10 @@ for p in pop:
 
 
 # Printing the solution
-print ' route:'
-print 'depot'
+print('route:')
+print('depot')
 for nodeIdx in better:
-	print vrp['nodes'][nodeIdx]['label']
-print 'depot'
-print ' cost:'
-print '%f' % bf
+	print(vrp['nodes'][nodeIdx]['label'])
+print('depot')
+print('cost:')
+print('%f' % bf)
