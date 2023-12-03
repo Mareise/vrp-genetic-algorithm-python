@@ -2,9 +2,13 @@
 import sys
 import random
 import math
+from time import time
 
 
 vrp = {}
+
+start = time()
+print("hello")
 
 
 ## First reading the VRP from the input ##
@@ -19,7 +23,12 @@ def readinput():
     except EOFError:
         return None
 
-
+def add_row(file_path, new_row):
+    try:
+        with open(file_path, 'a') as file:
+            file.write(new_row + '\n')
+    except Exception as e:
+        print(f"Error adding row: {e}")
 
 line = readinput()
 if line == None:
@@ -206,3 +215,10 @@ for nodeIdx in better:
 print('depot')
 print('cost:')
 print('%f' % bf)
+
+end = time()
+runtime = end - start
+
+
+new_row = str(bf) + "," + str(popsize) + "," + str(iterations) + "," + str(runtime)
+add_row("statistics.csv", new_row)
