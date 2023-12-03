@@ -1,0 +1,15 @@
+# This is an example of data input
+
+params:
+  capacity 5
+
+nodes:
+ 1 5 7 2
+ 2 0 10 1
+ 3 10 9 3
+ 4 5 0 1
+ 5 5 0 4
+ 6 5 1 2
+ 7 5 1 1
+ 8 0 0 1
+ 9 1 0 4
